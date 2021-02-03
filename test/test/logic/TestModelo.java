@@ -7,10 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TestModelo {
-	
+
 	private Modelo modelo;
 	private static int CAPACIDAD=100;
-	
+
 	@Before
 	public void setUp1() {
 		modelo= new Modelo(CAPACIDAD);
@@ -42,7 +42,7 @@ public class TestModelo {
 		setUp1();
 		modelo.agregar("prueba");
 		assertTrue("Debio haber agregado \"prueba\" ", modelo.darTamano()==1) ;
-		
+
 		setUp2();
 		assertTrue(modelo.darTamano()==CAPACIDAD+1);
 	}
@@ -51,21 +51,21 @@ public class TestModelo {
 	public void testBuscar() {
 		// TODO Completar la prueba
 		modelo.agregar("Hola");
-        assertEquals( "No busco correctamente.", "Hola", modelo.buscar("Hola") );     
+		assertEquals( "No busco correctamente.", "Hola", modelo.buscar("Hola") );     
 
 		setUp2();
 		assertTrue("Debio haber encontrado el numero 6", modelo.buscar("6").compareTo("6")==0) ;
-		
+
 	}
 
 	@Test
 	public void testEliminar() {
 		// TODO Completar la prueba
 		modelo.agregar("Hola");   
-        assertEquals( "No elimino correctamente.", "Hola", modelo.eliminar("Hola") );     
-        assertEquals( "No se redujo el tamano del arreglo.", 0, modelo.darTamano() );     
+		assertEquals( "No elimino correctamente.", "Hola", modelo.eliminar("Hola") );     
+		assertEquals( "No se redujo el tamano del arreglo.", 0, modelo.darTamano() );     
 
-        
+
 		setUp2();
 		assertTrue("No elimino el numero 6", modelo.eliminar(""+6).compareTo(""+6)==0) ;
 	}

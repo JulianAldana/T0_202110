@@ -25,13 +25,25 @@ public class TestArregloDinamico {
 
 	@Test
 	public void testArregloDinamico() {
-		// TODO
+		// TODO        
+		assertNotNull( "El Arreglo Dinámico no fue inicializado. No puede ser null.", arreglo );
+        
+		arreglo.agregar("Hola");   
+        assertEquals( "Deberia encontrar la palabra Hola.", "Hola", arreglo.buscar("Hola") );     
+        assert arreglo.eliminar("Hola") == "Hola": "No eliminó correctamente";
+		
 	}
 
 	@Test
 	public void testDarElemento() {
 		setUp2();
 		// TODO
+		for ( int i = 0; i<(arreglo.darTamano()-1); i++)
+		{
+			assert arreglo.darElemento(i).compareTo(""+i) == 0 : "Deberia entregar el elemento i.";
+			assert arreglo.darElemento(i+1).compareTo(""+(i+1)) == 0 : "Deberia entregar el elemento i+1.";
+		
+		}
 	}
 
 }

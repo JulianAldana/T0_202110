@@ -31,24 +31,43 @@ public class TestModelo {
 	@Test
 	public void testDarTamano() {
 		// TODO
+		assertTrue("El tamano deberia ser cero", modelo.darTamano()==0);
+		setUp2();
+		assertTrue("El tamano deberia ser el capturado en CAPACIDAD",modelo.darTamano()==CAPACIDAD);
 	}
 
 	@Test
 	public void testAgregar() {
 		// TODO Completar la prueba
+		setUp1();
+		modelo.agregar("prueba");
+		assertTrue("Debio haber agregado \"prueba\" ", modelo.darTamano()==1) ;
+		
+		setUp2();
+		assertTrue(modelo.darTamano()==CAPACIDAD+1);
 	}
 
 	@Test
 	public void testBuscar() {
-		setUp2();
 		// TODO Completar la prueba
+		modelo.agregar("Hola");
+        assertEquals( "No busco correctamente.", "Hola", modelo.buscar("Hola") );     
+
+		setUp2();
+		assertTrue("Debio haber encontrado el numero 6", modelo.buscar("6").compareTo("6")==0) ;
+		
 	}
 
 	@Test
 	public void testEliminar() {
-		setUp2();
 		// TODO Completar la prueba
-		
+		modelo.agregar("Hola");   
+        assertEquals( "No elimino correctamente.", "Hola", modelo.eliminar("Hola") );     
+        assertEquals( "No se redujo el tamano del arreglo.", 0, modelo.darTamano() );     
+
+        
+		setUp2();
+		assertTrue("No elimino el numero 6", modelo.eliminar(""+6).compareTo(""+6)==0) ;
 	}
 
 }

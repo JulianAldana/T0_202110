@@ -68,5 +68,13 @@ public class Modelo {
 		return datos.eliminar(dato);
 	}
 
+	/**
+	 * Requerimiento para retornar los datos
+	 * @return arreglo dinamico con las cadenas de Strings
+	 */
+	public IArregloDinamico darDatos()
+	{
+		return datos;
+	}
 
 }
